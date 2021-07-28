@@ -1,0 +1,31 @@
+body{
+    background-color: #dedede;
+}
+
+h1{
+    border: solid black 1px;
+    text-align: center;
+}
+
+h2{
+    color: purple;
+}
+
+input{
+    border: solid darkblue 2px;
+}
+
+#textblock{
+     border: gray solid 2px;
+     width: 600px;
+     height: 300px;
+ }
+
+
+a{
+    color:rgb(13, 155, 202);
+}
+
+html{
+    font-family: Calibri, sans-serif;
+}
