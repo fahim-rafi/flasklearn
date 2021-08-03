@@ -1,23 +1,23 @@
-# Set up your imports and your flask app.
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # This home page should have the form.
-    pass
+    return render_template('index.html')
 
 
-# This page will be the page after the form
 @app.route('/report')
 def report():
-    # Check the user name for the 3 requirements.
-
-    # HINTS:
-    # https://stackoverflow.com/questions/22997072/how-to-check-if-lowercase-letters-exist/22997094
-    # https://stackoverflow.com/questions/26515422/how-to-check-if-last-character-is-integer-in-raw-input
-
-    # Return the information to the report page html.
-    pass
+    report = False
+    password = request.args.get('password')
+    check_upper = any(c.isupper() for c in password)
+    check_lower = any(c.islower() for c in password)
+    check_num = password[-1].isdigit()
+    if check_upper and check_lower and check_num:
+        report = True
+    
+    return render_template('report.html',password=password,report=report, check_upper=check_upper,check_lower=check_lower,check_num=check_num)
 
 if __name__ == '__main__':
-    # Fill this in!
-    pass
+    app.run(debug=True)

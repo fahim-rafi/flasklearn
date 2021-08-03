@@ -1,0 +1,23 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-6 fw-bold">Hi! Welcome to Password Checker</h1>
+        <p class="col-md-8 fs-4">Let's see if your password is secure.</p>
+        <p class="col-md-8 fs-4">Fill out the form below with a password that has the following constraints:</p>
+        <p class="col-md-8 fs-4">
+            <ul>
+                <li>Must have an upper case letter</li>
+                <li>Must have a lower case letter</li>
+                <li>Must have a number at the end</li>
+            </ul>
+        </p>
+        <form action="{{url_for('report')}}">
+            <label for="password">Password: </label>
+            <input type="text" name="password" placeholder="Your Password">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+{% endblock %}
+

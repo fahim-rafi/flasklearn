@@ -1,0 +1,30 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        {% if report %}
+            <h1 class="display-6 fw-bold">Congratulations! You have a secure password! &#129395;</h1>
+            <p class="col-md-8 fs-4">Your password met all the 3 criteria.</p>
+        {% else %}
+            <h1 class="display-6 fw-bold">Your password isn't very secure &#128542;</h1>
+            <p class="col-md-8 fs-4">Your password didn't meet the following criteria:</p>
+            <ul>
+                {% if not check_upper %}
+                <li>Your password didn't have an upper case letter</li>
+                {% endif %}
+                {% if not check_lower %}
+                <li>Your password didn't have an lower case letter</li>
+                {% endif %}
+                {% if not check_num %}
+                <li>Your password didn't have a number at the end</li>
+                {% endif %}
+            </ul>
+            
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
