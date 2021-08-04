@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>
+    {% if breed %}
+    The breed of the dog you entered is {{ breed }}. You can update it in the form below:
+    {% else %}
+    Please enter your pup's desired breed:
+    {% endif %}
+</p>
+<form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.breed.label }}{{ form.breed }}
     <p>
-        {% if breed %}
-        The breed of the dog you entered is {{ breed }}. You can update it in the form below:
-        {% else %}
-        Please enter your pup's desired breed:
-        {% endif %}
+        {{ form.submit() }}
     </p>
-    <form method="post">
-        {{ form.hidden_tag() }}
-        {{ form.breed.label }}{{ form.breed }}
-        <p>
-            {{ form.submit() }}
-        </p>
-    </form>
-</body>
-</html>
+</form>
+
+{% endblock %}
