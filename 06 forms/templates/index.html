@@ -2,9 +2,18 @@
 
 {% block content %}
 
+{% for message in get_flashed_messages() %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    The breed of the dog you entered is <strong>{{ breed }}</strong>! 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{% endfor %}
+
 <p>
     {% if breed %}
-    The breed of the dog you entered is {{ breed }}. You can update it in the form below:
+    You can update the breed in the form below:
     {% else %}
     Please enter your pup's desired breed:
     {% endif %}
