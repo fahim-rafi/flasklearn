@@ -14,8 +14,7 @@ def index():
     breed = False
     form = SimpleForm()
     if form.validate_on_submit():
-        breed = form.breed.data
-        form.breed.data = ""
+        session["breed"] = form.breed.data
         flash('You have submitted the breed!')
     return render_template('index.html', form=form, breed=breed)
 
