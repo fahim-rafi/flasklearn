@@ -27,7 +27,7 @@ class Puppy(db.Model):
         self.name = name
 
     def __repr__(self):
-        return f"Name of the pupper is {self.name}"
+        return f"Name of the pupper is {self.name} with the ID {self.id}"
 
 # FORMS
 
