@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Owners</h1>
+<div class='jumbotron'>
+    <h1>Are you the owner of the pupper?</h1>
+    <p>Add your name to our database using the following form:</p>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>{{ form.id.label }}{{ form.id }}</p>
+        <p>{{ form.name.label }}{{ form.name }}</p>
+        <p>{{ form.submit }}</p>
+    </form>
+</div>
 {% endblock %}
+

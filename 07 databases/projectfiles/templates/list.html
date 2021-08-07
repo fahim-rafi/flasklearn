@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>List</h1>
+<div class='jumbotron'>
+    <h1>Here's a list of the available puppers in our database:</h1>
+    <ul>
+        {% for pupper in puppies %}
+            <li>{{pupper}}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
