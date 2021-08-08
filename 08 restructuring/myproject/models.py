@@ -1,4 +1,4 @@
-from project import db
+from myproject import db
 
 ## Puppies table
 class Puppy(db.Model):
