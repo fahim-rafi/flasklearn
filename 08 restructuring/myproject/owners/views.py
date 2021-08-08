@@ -14,5 +14,5 @@ def add_owner():
         add_owner = Owner(name,id)
         db.session.add(add_owner)
         db.session.commit()
-        return redirect(url_for('add_owner'))
+        return redirect(url_for('owners.add_owner'))
     return render_template('owner.html',form=form)

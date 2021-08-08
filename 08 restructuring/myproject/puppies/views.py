@@ -13,7 +13,7 @@ def add_pup():
         new_pupper = Puppy(name)
         db.session.add(new_pupper)
         db.session.commit()
-        return redirect(url_for('add_pup'))
+        return redirect(url_for('puppies.add_pup'))
     return render_template('add.html', form=form)
 
 @puppies_blueprint.route("/delete",methods=['GET', 'POST'])
@@ -24,7 +24,7 @@ def del_pup():
         del_pupper = Puppy.query.get(id)
         db.session.delete(del_pupper)
         db.session.commit()
-        return redirect(url_for('del_pup'))
+        return redirect(url_for('puppies.del_pup'))
     return render_template('delete.html', form=form)
 
 @puppies_blueprint.route("/list")
