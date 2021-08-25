@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     profile_image = db.Column(
-        db.String(20), nullable=False, default="default_profile_image.png"
+        db.String(64), nullable=False, default="default_profile.png"
     )
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
@@ -31,7 +31,7 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return f"Username {self.username}"
+        return f"Username: {self.username}"
 
 
 class BlogPost(db.Model):

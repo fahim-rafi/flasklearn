@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5" align="center">
+        <h1 class="display-5 fw-bold">Welcome {{current_user.username}}!</h1>
+        <img src="{{ url_for('static', filename='profile_pics/' + current_user.profile_image) }}" alt="##">
+        <form method="POST" action="" enctype="multipart/form-data">
+            <br>
+            {{ form.hidden_tag() }}
+            <div class="mb-2 row">
+                {{ form.email.label(class='col-sm-5 col-form-group') }}
+                <div class="col-sm-5">
+                    {{ form.email(class='form-control') }}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                {{ form.username.label(class='col-sm-5 col-form-label') }}
+                <div class="col-sm-5">
+                    {{ form.username(class='form-control') }}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                {{ form.picture.label(class='col-sm-5') }}
+                <div class="col-sm-4">
+                    {{ form.picture }}
+                </div>
+            </div>
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
