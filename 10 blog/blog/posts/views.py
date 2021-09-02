@@ -34,7 +34,7 @@ def blog_post(blog_post_id):
 # Update
 @blog_posts.route("/<int:blog_post_id>/update", methods=["GET", "POST"])
 @login_required
-def blog_post(blog_post_id):
+def update(blog_post_id):
     blog_post = BlogPost.query.get_or_404(blog_post_id)
     if blog_post.author != current_user:
         abort(403)
